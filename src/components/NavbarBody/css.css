@@ -1,0 +1,31 @@
+.navNavbarBody {
+    background-color: #FFF5EE;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.ulNavbarBody {
+    background-color: #FFF5EE;
+    width: fit-content;
+    font-weight: bold;
+    margin: 0;
+}
+
+
+/* Change the link color to #111 (black) on hover */
+
+.liNavbarBody {
+    /* border: 3px transparent solid; */
+    transition: all 0.3s ease-in;
+}
+
+.liNavbarBody>a {
+    color: black;
+}
+
+.liNavbarBody:hover {
+    /* border-radius: 25%;
+    border: 3px solid; */
+    background-color: salmon;
+}

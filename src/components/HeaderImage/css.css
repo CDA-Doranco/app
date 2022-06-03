@@ -1,0 +1,13 @@
+.HeaderImg{
+
+    height: 40vh; /* For 100% screen height */
+    width:  100vw; /* For 100% screen width */
+    margin: auto;
+
+
+}
+
+.BackgroundColor {
+    background-color: 	black;
+
+}

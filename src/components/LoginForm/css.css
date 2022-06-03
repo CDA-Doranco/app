@@ -1,0 +1,25 @@
+.Form {
+    border-radius: 5vh;
+    margin-top: 12vh;
+    background-color: white;
+    margin-left: 50vh;
+
+}
+.FormButton {
+    background: #FFF5EE;
+    color: Black;
+    height: 50px;
+    width: 100vh;
+    border: solid;
+    font: bold 15px arial, sans-serif;
+    text-shadow:none;
+}
+.text{
+    width: 60%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+    box-sizing: border-box;
+}
