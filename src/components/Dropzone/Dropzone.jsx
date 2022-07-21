@@ -17,24 +17,8 @@ const Dropzone= () => {
     const [authorization, setAuthorization] = useState("")
 
     const onDrop = useCallback(acceptedFiles => {
-        const file = acceptedFiles[0];
-        const formData = new FormData();
-        formData.append('details',new Blob([JSON.stringify({name,description,price,image,category})], {
-            type: "application/json"
-        }));
-        formData.append("file",file);
 
-        fetch('http://127.0.0.1:8080/api/food',
 
-            {   method: 'POST',
-               // Authorization:'Bearer '+ authorization,
-                credentials: "include",
-                headers: new Headers({'content-type': 'multipart/form-data'}),
-                body:formData ,
-            }
-        ).then(res => res.json())
-            .then(data => console.log(data))
-            .catch(err => console.error(err))
     }, [])
     const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
 

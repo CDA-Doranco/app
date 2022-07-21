@@ -1,4 +1,4 @@
-import Dropzone from "../../components/Dropzone/Dropzone"
+import Dropzone from "../../components/Dropzone/Dropzone";
 import {useDropzone} from "react-dropzone";
 import {useCallback, useEffect, useState} from "react";
 import {getAllCategories, saveFood} from "../../services/helpers/food";
@@ -37,38 +37,36 @@ const AddProduct = () => {
         }));
         formData.append("file",file);
         saveFood(formData)
-            .then(e => {
-            if (e.state === 201)
-                alert("L'article a bien été enregistré");
-        })
-
-            .catch(e => {
-                if (e.state === 400 || e.state===404)
-                    alert("L'article n'a pas bien été enregistré");
+            .then((reponse) => {
+                alert("Article has been added")
             })
+            .catch((error) => {
+                alert("A field is empty")
+            });
+
     }
     return (
         <form>
             <div className="row mb-3">
-                <label htmlFor="name" className="col-sm-2 col-form-label">Nom du produit:</label>
+                <label htmlFor="name" className="col-sm-2 col-form-label">Name of product:</label>
                 <div className="col-sm-3">
                     <input type="text" className="form-control" id="name"  name="name" onChange={e => setName(e.target.value)}/>
                 </div>
             </div>
             <div className="row mb-3">
-                <label htmlFor="description" className="col-sm-2 col-form-label">Description du produit:</label>
+                <label htmlFor="description" className="col-sm-2 col-form-label">Description of product:</label>
                 <div className="col-sm-3">
                     <input type="text" className="form-control" id="description"  name="description" onChange={e => setDescription(e.target.value)}/>
                 </div>
             </div>
             <div className="row mb-3">
-                <label htmlFor="price" className="col-sm-2 col-form-label">Prix du produit:</label>
+                <label htmlFor="price" className="col-sm-2 col-form-label">Price of product:</label>
                 <div className="col-sm-3 ">
                     <input type="number" className="form-control" id="price"  name="price" onChange={e => setPrice(e.target.value)}/>
                 </div>
             </div>
             <div className="row mb-3">
-                <label htmlFor="category" className="col-sm-2 col-form-label">Catégorie:</label>
+                <label htmlFor="category" className="col-sm-2 col-form-label">Catégory:</label>
                 <div className="col-sm-3">
                     {/*<input type="text" className="form-control" id="category"  name="category" onChange={e => setCategory(e.target.value)}/>*/}
                     <select className="form-select" aria-label="category" id="category" name="category" onChange={e => setCategory(e.target.value)}>
@@ -86,7 +84,7 @@ const AddProduct = () => {
                         {
                             isDragActive ?
                                 <p>Drop the files here ...</p> :
-                                <Button >Cliquez ici pour ajouter un image</Button>
+                                <Button >Add picture</Button>
                         }
                     </div>
                 </div>
@@ -95,7 +93,7 @@ const AddProduct = () => {
                 <div className="col-sm-1 offset-sm-3">
                 <input className="btn btn-primary"
                       type="button"
-                      value="Enregistrer" onClick={onFinish}/>
+                      value="Save" onClick={onFinish}/>
             </div>
             </div>
         </form>

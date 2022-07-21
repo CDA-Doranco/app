@@ -60,10 +60,12 @@ const Basket = ({basket, setBasket}) => {
     };
 
     const createOrder = ()=>{
+
+
         let order = {products, userId: sessionStorage.getItem('userId')}
 
         addOrder(order)
-            .then((response) => console.log(response.headers.get('Location')))
+            .then((response) =>   alert("Article have been order"))
 
             .catch((err) => {
                 alert(err);

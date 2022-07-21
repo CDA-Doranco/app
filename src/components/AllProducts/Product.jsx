@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import ProductCard from "../ProductCard/ProductCard";
-import {getAllFoods, getFoodByCategory} from "../../services/helpers/food";
+import {getFoodByCategory} from "../../services/helpers/food";
 
 
 const Product = ({basket, setBasket,userId,category}) => {

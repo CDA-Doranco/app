@@ -12,7 +12,6 @@ const authenticate = (email, password) => {
   const usernameBody = encodedUsernameKey + '=' + encodedUsernameValue
   const passwordBody = encodedPasswordKey + '=' + encodedPasswordValue
   const formBody = usernameBody + '&' + passwordBody
-console.log(formBody)
   return apiAuthentification.post(BASE_URL_LOGIN, formBody)
 }
 export default authenticate

@@ -28,8 +28,8 @@ const Commands = () => {
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Id</th>
-                    <th scope="col">Total price</th>
                     <th scope="col">Date</th>
+                    <th scope="col">Total price</th>
                 </tr>
                 </thead>
                 <tbody>

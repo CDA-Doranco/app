@@ -72,8 +72,8 @@ const LoginForm = ({setUserId,setUserRole}) => {
                     setRedirection(true);
                 }
             })
-            .catch((err) => {
-                alert(err);
+            .catch((e) => {
+                alert("Connexion error");
             })
     }
 
@@ -82,9 +82,9 @@ const LoginForm = ({setUserId,setUserRole}) => {
     }
 
     return (
-        <div className="Form" >
-
+        <div className="mb-3" >
             <p > To order you must be authenticated </p><br/>
+
             <form ref={form} id="RegisterForm" action="#" style={{display: "none"}} onSubmit={register}>
 
                 <label htmlFor="firstNameRegister">First name  :</label><br/>
@@ -104,7 +104,7 @@ const LoginForm = ({setUserId,setUserRole}) => {
                 <br/>
                 <br/>
                 <label htmlFor="emailRegister">Email:</label><br/>
-                <input className="text" type="text" name="emailRegister" id="emailRegister" onChange={e => setEmailRegister(e.target.value)}/>
+                <input className="text" type="email" name="emailRegister" id="emailRegister" onChange={e => setEmailRegister(e.target.value)}/>
                 <br/>
                 <br/>
                 <label htmlFor="phoneRegister">Phone number:</label><br/>
@@ -128,31 +128,34 @@ const LoginForm = ({setUserId,setUserRole}) => {
                 <br/>
 
             </form>
-
-
-            <form  id="LoginForm" style={{display: "none"}}  >
-
-                    <p>username :</p>
-                    <input className="text" name="username" type="text" onChange={e => setUsernameLogin(e.target.value)}/>
-
-                <br/>
-
-                    <p>password :</p>
-                    <input className="text" name="password" type="password" onChange={e => setPasswordLogin(e.target.value)}/>
-
-                <div>
-                    <button type="button" onClick={loginSumbit}>Connexion</button>
-                </div>
+            <div className="mb-3">
+                <form  id="LoginForm" style={{display: "none"}}  >
+                    <div className="mb-3">
+                        <label className="form-label">username :</label>
+                        <input class="form-control" name="username" type="email" onChange={e => setUsernameLogin(e.target.value)}/>
+                        <div className="form-text">We'll never share your username with anyone else.</div>
+                    </div>
+                    <div className="mb-3">
+                        <label  className="form-label">Password</label>
+                        <input type="password" class="form-control"  name="password"  onChange={e => setPasswordLogin(e.target.value)}/>
+                    </div>
+                    <div>
+                        <button type="button" class="btn btn-primary" onClick={loginSumbit}>Connexion</button>
+                    </div>
 
             </form>
+                </div>
+            <div className="mb-3">
+                <button id="Connexion" className="btn FormButton" onClick={displayFromLogin} >
+                    Login
+                </button>
 
-            <button id="Connexion" className="FormButton" onClick={displayFromLogin} >
-                Login
-            </button><br/><br/><br/><br/>
-            <button id="Register" className="FormButton" onClick={displayFromRegister} >
+                    <br/><br/><br/><br/>
+            <button id="Register" className="btn FormButton" onClick={displayFromRegister} >
                 Register
             </button>
 
+            </div>
         </div>
 
 

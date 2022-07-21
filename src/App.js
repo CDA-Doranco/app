@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom'
-import AddCourse from "./pages/AddCourse/AddCourse";
 import CourseDetails from "./pages/CourseDetails/CourseDetails"
 import Home from "./pages/Home/Home"
 import HeaderImage from "./components/HeaderImage/HeaderImage";
@@ -11,10 +10,8 @@ import Contact from "./pages/Contact/Contact";
 import Login from "./pages/Login/Login";
 import AddProduct from "./pages/AddProduct/AddProduct";
 import Basket from "./pages/Basket/Basket";
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import Order from "./pages/Order/Order";
-import CampagneProvider from "./components/context/CampagneContext";
-import {AuthProvider} from "./components/Auth";
 import Histories from "./pages/Order/Histories";
 import Command from "./pages/Command/Command";
 import Commands from "./pages/Command/Commands";
@@ -22,6 +19,7 @@ import UpdateProduct from "./pages/AddProduct/UpdateProduct";
 import Products from "./pages/Product/Products";
 import Logout from "./pages/Login/Logout";
 import AddRole from "./pages/AddRole/AddRole";
+import Paypal from "./pages/Paypal/Paypal";
 
 const App = () => {
 
@@ -46,12 +44,13 @@ const App = () => {
 							<Link className="nav-item nav-link" to='/contact'>Contact</Link>
                         </div>
                         <div className="navbar-nav ms-auto">
-							{userId!==null && <Link className="nav-item nav-link" to='/panier'>bag</Link> }
-							{userId!==null && <Link className="nav-item nav-link"to='/historique'>historical</Link> }
+							{userId!==null && <Link className="nav-item nav-link" to='/bag'>bag</Link> }
+							{userId!==null && <Link className="nav-item nav-link"to='/historical'>historical</Link> }
 							{userRole==="ROLE_ADMIN" &&<Link className="nav-item nav-link" to='/add-product'>Adding products</Link>}
 							{userRole==="ROLE_ADMIN" &&<Link className="nav-item nav-link" to='/products'>Products</Link>}
 							{userRole==="ROLE_ADMIN" &&<Link className="nav-item nav-link" to='/add-role'>Users</Link>}
 							{userRole==="ROLE_RESTORER" && <Link className="nav-item nav-link" to='/command'>Commands</Link> }
+
 
 							{userId===null &&<Link className="nav-item nav-link" to='/login'>Login</Link>}
 							{userId!==null &&<Link className="nav-item nav-link" to='/logout'>Logout</Link>}
@@ -73,8 +72,9 @@ const App = () => {
 				<Route path='/hello/12' component={() => <h1>Hello 12</h1>} />
 				<Route path='/hello' component={() => <h1>Hello world</h1>} />
 				{/* <Route path='/' exact component={Home} /> */}
-				{userId!=null &&<Route path='/panier' ><Basket basket={basket} setBasket={setBasket}/></Route>}
-				{userId!=null &&<Route path='/historique' ><Histories /></Route>}
+				{userId!=null &&<Route path='/bag' ><Basket basket={basket} setBasket={setBasket}/></Route>}
+				{userId!=null &&<Route path='/historical' ><Histories /></Route>}
+				{userId!=null &&<Route path='/paypal' ><Paypal /></Route>}
 				{userId!=null &&<Route path='/order/:id' component={Order}/>}
 				{userRole==="ROLE_RESTORER" &&<Route path='/command/:id' component={Command}/>}
 				{userRole==="ROLE_RESTORER" &&<Route path='/command' component={Commands}/>}
